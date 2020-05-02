@@ -14,9 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(()=> ({
     container: {
-        display: 'flex',
-        maxWidth: '1000px',
-        background: 'grey'
+        display: 'flex'
     },
     container__mobile: {
         flexDirection: 'column'
@@ -36,25 +34,26 @@ const useStyles = makeStyles(()=> ({
         padding: '30px 15px 100px 15px'
     },
     rightPane__desktop: {
-        padding: '40px 20px 50px 15px'
+        padding: '40px 40px 50px 15px'
     },
     leftPane__mobile: {
         maxWidth: '100%',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        padding: '10px'
     },
     leftPane__desktop: {
-        minWidth: '440px',
-        maxWidth: '440px',
-        padding: '0 10px'
+        minWidth: '450px',
+        maxWidth: '450px',
+        padding: '0 30px 0 0'
     },
     isSticky: {
         position: 'fixed',
         minWidth: '420px',
         maxWidth: '420px',
-        top: '40px',
-        left: '20px'
+        top: '120px',
+        left: '40px'
     },
     isNotSticky: {
         maxWidth: '620px'
