@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,10 +19,6 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   floatMenu: {
-      //position: 'fixed',
-      //left: 'auto',
-      //right: 'auto',
-      //top: '10px',
       '& Button' : {
           display: 'flex',
           alignItems: 'flex-end',
@@ -35,17 +33,21 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export function DesktopNav() {
+export function DesktopNav({ handleClick }) {
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
             <ButtonGroup size="small" style={{ background: '#FFF' }} variant="text" aria-label="text primary button group"  className={classes.floatMenu}>
-                <Button> <FaceOutlinedIcon /> _INTRO</Button>
-                <Button> <DevicesOutlinedIcon /> _SKILLS</Button>
-                <Button> <WorkOutlineIcon /> _WORK</Button>
-                <Button> <AlternateEmailOutlinedIcon /> _CONTACTS</Button>
+                <Button onClick={ ()=>handleClick([ true, false, false, false ]) }> <FaceOutlinedIcon /> _INTRO</Button>
+                <Button onClick={ ()=>handleClick([ false, true, false, false ]) }> <DevicesOutlinedIcon /> _SKILLS</Button>
+                <Button onClick={ ()=>handleClick([ false, false, true, false ]) }> <WorkOutlineIcon /> _WORK</Button>
+                <Button onClick={ ()=>handleClick([ false, false, false, true ]) }> <AlternateEmailOutlinedIcon /> _CONTACTS</Button>
             </ButtonGroup>
         </div>
     );
+}
+
+DesktopNav.propTypes = {
+  handleClick: PropTypes.func.isRequired
 }

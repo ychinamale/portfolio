@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { makeStyles, withTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -22,42 +24,46 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-export function MobileNav() {
-const classes = useStyles();
+export function MobileNav({ handleClick }) {
+    const classes = useStyles();
 
-return (
-    <React.Fragment >
-    <AppBar position="fixed" style={{ background: 'black', color: 'lightcyan' }} className={classes.appBar}>
-        <Toolbar>
-            <IconButton edge="start" color="inherit">
-                <HomeOutlinedIcon />
-            </IconButton>
+    return (
+        <React.Fragment >
+        <AppBar position="fixed" style={{ background: 'black', color: 'lightcyan' }} className={classes.appBar}>
+            <Toolbar>
+                <IconButton href='#' edge="start" color="inherit">
+                    <HomeOutlinedIcon />
+                </IconButton>
 
-            <div className={classes.grow} />
+                <div className={classes.grow} />
 
-            <IconButton edge="start" color="inherit">
-                <FaceOutlinedIcon />
-            </IconButton>
+                <IconButton onClick={ ()=>handleClick([ true, false, false, false ]) } edge="start" color="inherit">
+                    <FaceOutlinedIcon />
+                </IconButton>
 
-            <div className={classes.grow} />
+                <div className={classes.grow} />
 
-            <IconButton edge="start" color="inherit">
-                <DevicesOutlinedIcon />
-            </IconButton>
+                <IconButton onClick={ ()=>handleClick([ false, true, false, false ]) } edge="start" color="inherit">
+                    <DevicesOutlinedIcon />
+                </IconButton>
 
-            <div className={classes.grow} />
+                <div className={classes.grow} />
 
-            <IconButton color="inherit">
-                <WorkOutlineIcon />
-            </IconButton>
+                <IconButton onClick={ ()=>handleClick([ false, false, true, false ]) } color="inherit">
+                    <WorkOutlineIcon />
+                </IconButton>
 
-            <div className={classes.grow} />
+                <div className={classes.grow} />
 
-            <IconButton edge="end" color="inherit">
-                <AlternateEmailOutlinedIcon />
-            </IconButton>
-        </Toolbar>
-    </AppBar>
-    </React.Fragment>
-);
+                <IconButton onClick={ ()=>handleClick([ false, false, false, true ]) } edge="end" color="inherit">
+                    <AlternateEmailOutlinedIcon />
+                </IconButton>
+            </Toolbar>
+        </AppBar>
+        </React.Fragment>
+    );
+}
+
+MobileNav.propTypes = {
+    handleClick: PropTypes.func.isRequired
 }
