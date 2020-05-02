@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './reset.css';
 import './index.css';
@@ -63,24 +63,52 @@ const useStyles = makeStyles(()=> ({
 
 
 function App () {
+    /*
+        Teachable point.
+        MainContent has child components that change behaviour based on state X
+        DesktopNav has buttons that change said state (X)
+        MainContent and DesktopNav are sibling components
+        Therefore, without the use of context, we would have to:
+            - create state X in parent component (App)
+            - create a handlerFunction that can change state X
+            - pass handlerFunction to DesktopNav so it can affect the state X
+            - pass state X as props to MainContent and therefore link DesktopNav and MainContent
+    */
+    const [isAboutActive, setAboutActive] = useState(false);
+    const [isSkillsActive, setSkillsActive] = useState(false);
+    const [isWorksActive, setWorksActive] = useState(false);
+    const [isContactsActive, setContactsActive] = useState(false);
 
     const classes = useStyles();
 
     const desktopOnly = useMediaQuery('(min-width:1000px)');
     const mobileOnly = useMediaQuery('(max-width:999px)');
 
+    function handleButtonClick ([boolAbout, boolSkills, boolWork, boolContacts]) {
+        console.log('The function fired', boolAbout, boolSkills, boolWork, boolContacts)
+        setAboutActive(boolAbout);
+        setSkillsActive(boolSkills);
+        setWorksActive(boolWork);
+        setContactsActive(boolContacts);
+    }
+
     return (
         <React.Fragment>
             <div className={ `${classes.container} ${ desktopOnly ? classes.container__desktop : classes.container__mobile }` }>
                 <div className={ `${classes.leftPane} ${ desktopOnly ? classes.leftPane__desktop : classes.leftPane__mobile }` }>
                     <div className={ `${classes.leftPane__frame} ${ desktopOnly ? classes.isSticky : classes.isNotSticky }` } >
-                        { mobileOnly && <MobileNav /> }
-                        { desktopOnly && <DesktopNav /> }
+                        { mobileOnly && <MobileNav handleClick={ (boolArray)=> handleButtonClick(boolArray) } /> }
+                        { desktopOnly && <DesktopNav handleClick={ (boolArray)=> handleButtonClick(boolArray) } /> }
                         < DevCard />
                     </div>
                 </div>
                 <div className={ `${classes.rightPane} ${ desktopOnly ? classes.rightPane__desktop : classes.rightPane__mobile }` } >
-                    <MainContent />
+                    <MainContent 
+                        boolAbout={isAboutActive}
+                        boolSkills={isSkillsActive}
+                        boolWork={isWorksActive}
+                        boolContacts={isContactsActive}
+                    />
                 </div>
             </div>
         </React.Fragment>
