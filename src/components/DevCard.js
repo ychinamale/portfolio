@@ -55,39 +55,3 @@ export function DevCard () {
         </div>
     );
 }
-
-/*
- // OLD STYLING
-     profile : {
-        fontFamily: 'Nunito',
-        textAlign: 'center',
-        boxShadow: '0 0 10px rgba(0,0,0,0.1)',
-        maxWidth:'100%',
-        padding: '12px 0 20px 0',
-        margin: '0 0px 10px 0'
-    },
-    frame : {
-        padding: "10px 20px",
-        maxWidth: "350px"
-    },
-    frame__image: {
-        maxWidth: "100%",
-        height: "auto",
-        borderRadius: '50%',
-        objectFit: 'cover'
-    },
-    profile__name: {
-        fontSize: '1.5em',
-        fontWeight: 'bold'
-    },
-    profile__title: {
-        marginBottom: '10px',
-        fontSize: '1.2em'
-    },
-    profile__details: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '1.1em'
-    },
-*/
