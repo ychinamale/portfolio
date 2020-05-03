@@ -7,13 +7,13 @@ import ScrollIntoViewIfNeeded from 'react-scroll-into-view-if-needed';
 
 const useStyles = makeStyles(()=>({
     content: {
+        display: 'flex',
+        flexDirection: 'column',
         '& article': {
+            minHeight: '100vh',
             display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            height: '100vh',
-            position: 'relative',
-            top: '-50px'
+            alignItems: 'center',
+            border: 'solid 1px red'
         }
     },
 
@@ -30,11 +30,13 @@ export function MainContent ({ boolAbout, boolSkills, boolWork, boolContacts }) 
                     <ScrollIntoViewIfNeeded active={boolAbout}>
                     <h2 id='about'>About Me</h2><br/>
                     
+                    <section>Hi. I am Yamikani of the house of Chinamale, first of his name.<br/>
+                    An alumnus of Wits University, studier of Computer Science, 2017 Scholar of the Mandela Rhodes Foundation.<br/> Husband to queen V, father to young master Kai, and a child of Elohim.<br/><br/>
 
-                    <p>######## THE NEXT STEP IS FOR YOU TO MOVE ALL CSS FROM index.css into useStyles() #######. What is ipsum lorem? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br/><br/>
-                        
-                    Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).<br/><br/>
-                    </p>
+                    Ehem. What I meant to say is that I am an IT professional.<br/>
+                    I enjoy writing programs in JavaScript and Python.<br/> I am enamoured with JS frameworks at the moment.<br/><br/>
+                    Scroll to know more.<br/>
+                    </section>
                     </ScrollIntoViewIfNeeded> 
                 </article>
             
@@ -44,11 +46,29 @@ export function MainContent ({ boolAbout, boolSkills, boolWork, boolContacts }) 
                     <ScrollIntoViewIfNeeded active={boolSkills}>
                     <h2 id='skills'>My Skills </h2><br/>
                     
-
-                    <p>What is ipsum lorem? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br/><br/>
+                    <section>
+                        Scripting
+                        <ul>
+                            <li>Bash</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>Python</li>
+                            <li>NoSQL</li>
+                            <li>SQL</li>
+                        </ul>
+                        <br/><br/>
                         
-                    Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).<br/><br/>
-                    </p>
+                        Frameworks &amp; Tools
+                        <ul>
+                            <li>Figma</li>
+                            <li>Git</li>
+                            <li>GraphQL</li>
+                            <li>Jira</li>
+                            <li>NodeJs</li>
+                            <li>ReactJs</li>
+                        </ul>
+
+                    </section>
                     </ScrollIntoViewIfNeeded>
                 </article>
             
@@ -59,8 +79,6 @@ export function MainContent ({ boolAbout, boolSkills, boolWork, boolContacts }) 
                 <h2 id='work'>What I have worked on </h2><br/>
 
                 <p>What is ipsum lorem? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br/><br/>
-                    
-                Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).<br/><br/>
                 </p>
                 </ScrollIntoViewIfNeeded>
             </article>
@@ -68,16 +86,14 @@ export function MainContent ({ boolAbout, boolSkills, boolWork, boolContacts }) 
 
 
             
-                <article>
-                    <ScrollIntoViewIfNeeded active={boolContacts}>
-                    <h2 id='contacts'>How to reach me </h2><br/>
-                    
+            <article>
+                <ScrollIntoViewIfNeeded active={boolContacts}>
+                <h2 id='contacts'>How to reach me </h2><br/>
+                
 
-                    <p>What is ipsum lorem? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br/><br/>
-                        
-                    Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).<br/><br/>
-                    </p>
-                    </ScrollIntoViewIfNeeded>
+                <p>What is ipsum lorem? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br/><br/>
+                </p>
+                </ScrollIntoViewIfNeeded>
             </article>
             
         </div>
