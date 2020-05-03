@@ -39,7 +39,7 @@ export function DesktopNav({ handleClick }) {
     return (
         <div className={classes.root}>
             <ButtonGroup size="small" style={{ background: '#FFF' }} variant="text" aria-label="text primary button group"  className={classes.floatMenu}>
-                <Button onClick={ ()=>handleClick([ true, false, false, false ]) }> <FaceOutlinedIcon /> _INTRO</Button>
+                <Button onClick={ ()=>handleClick([ true, false, false, false ]) }> <FaceOutlinedIcon /> _ABOUT</Button>
                 <Button onClick={ ()=>handleClick([ false, true, false, false ]) }> <DevicesOutlinedIcon /> _SKILLS</Button>
                 <Button onClick={ ()=>handleClick([ false, false, true, false ]) }> <WorkOutlineIcon /> _WORK</Button>
                 <Button onClick={ ()=>handleClick([ false, false, false, true ]) }> <AlternateEmailOutlinedIcon /> _CONTACTS</Button>
