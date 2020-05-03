@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './reset.css';
 import './index.css';
@@ -28,7 +28,9 @@ const useStyles = makeStyles(()=> ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        boxShadow: '0 0 10px rgba(0,0,0,0.1)'
+        boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+        position: 'relative',
+        top: '-30px'
     },
     rightPane__mobile: {
         padding: '30px 15px 100px 15px'
@@ -38,6 +40,7 @@ const useStyles = makeStyles(()=> ({
     },
     leftPane__mobile: {
         maxWidth: '100%',
+        minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -79,18 +82,28 @@ function App () {
     const [isWorksActive, setWorksActive] = useState(false);
     const [isContactsActive, setContactsActive] = useState(false);
 
-    const classes = useStyles();
+    useEffect(()=>{
+        resetAllStates(); // make buttons re-clickable after scrolling
+    }, [isAboutActive, isSkillsActive, isWorksActive, isContactsActive])
 
-    const desktopOnly = useMediaQuery('(min-width:1000px)');
-    const mobileOnly = useMediaQuery('(max-width:999px)');
+    function resetAllStates () {
+        setAboutActive(false);
+        setSkillsActive(false);
+        setWorksActive(false);
+        setContactsActive(false);
+    }
 
     function handleButtonClick ([boolAbout, boolSkills, boolWork, boolContacts]) {
-        console.log('The function fired', boolAbout, boolSkills, boolWork, boolContacts)
         setAboutActive(boolAbout);
         setSkillsActive(boolSkills);
         setWorksActive(boolWork);
         setContactsActive(boolContacts);
     }
+
+    const classes = useStyles();
+
+    const desktopOnly = useMediaQuery('(min-width:1000px)');
+    const mobileOnly = useMediaQuery('(max-width:999px)');
 
     return (
         <React.Fragment>
