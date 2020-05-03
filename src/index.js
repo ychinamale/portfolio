@@ -12,6 +12,11 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+// hardcoding devCard to be in the middle 
+const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+var topSpace = vh/2 - 250;
+////////////////////////////////
+
 const useStyles = makeStyles(()=> ({
     container: {
         display: 'flex'
@@ -55,7 +60,7 @@ const useStyles = makeStyles(()=> ({
         position: 'fixed',
         minWidth: '420px',
         maxWidth: '420px',
-        top: '120px',
+        top: `${topSpace}px`,// top: '120px',
         left: '40px'
     },
     isNotSticky: {
