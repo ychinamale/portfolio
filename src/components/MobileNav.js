@@ -18,6 +18,7 @@ const useStyles = makeStyles(() => ({
     appBar: {
         top: 'auto',
         bottom: 0,
+        minWidth: '100%'
     },
     grow: {
         flexGrow: 1,
