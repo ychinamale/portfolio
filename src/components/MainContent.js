@@ -5,19 +5,53 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import ScrollIntoViewIfNeeded from 'react-scroll-into-view-if-needed';
 
+import { SkillCharts } from './SkillCharts';
+
 const useStyles = makeStyles(()=>({
     content: {
         display: 'flex',
         flexDirection: 'column',
         '& article': {
             minHeight: '100vh',
+            minWidth: '100%',
             display: 'flex',
-            alignItems: 'center',
-            border: 'solid 1px red'
+            alignItems: 'center'
         }
     },
-
+    skillFrame : {
+        minWidth: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
+    },
+    chartContainer: {
+        display: 'flex',
+        flexWrap: 'wrap'
+        //background: 'lightpink'
+    }
 }));
+
+
+const chartData = [
+    { title: "JavaScript - 7", thickness: 20, color: "#660066", skillLevel: 70 },
+    { title: "Python - 7", thickness: 20, color: "#660066", skillLevel: 70 },
+    { title: "Bash - 6", thickness: 20, color: "#660066", skillLevel: 60 },
+    { title: "CSS - 5", thickness: 20, color: "#be29ec", skillLevel: 50 },
+    { title: "SQL - 5", thickness: 20, color: "#be29ec", skillLevel: 50 },
+];
+
+const toolsData = [
+    { title: "ReactJs - 6", thickness: 20, color: "#660066", skillLevel: 60 },
+    { title: "NodeJs - 5", thickness: 20, color: "#be29ec", skillLevel: 50 },
+    { title: "GraphQL - 4", thickness: 20, color: "#d896ff", skillLevel: 40 },
+    { title: "Django - 3", thickness: 20, color: "#d896ff", skillLevel: 30 },
+    { title: "Docker - 3", thickness: 20, color: "#d896ff", skillLevel: 30 },
+    
+];
+
+const chartOptions = {
+    opacity: 0.7,  minWidth: '240px', maxWidth: '420px', borderColor: '#FFF'
+};
 
 export function MainContent ({ boolAbout, boolSkills, boolWork, boolContacts }) {
 
@@ -40,43 +74,31 @@ export function MainContent ({ boolAbout, boolSkills, boolWork, boolContacts }) 
                     </ScrollIntoViewIfNeeded> 
                 </article>
             
-
-            
                 <article>
-                    <ScrollIntoViewIfNeeded active={boolSkills}>
-                    <h2 id='skills'>My Skills </h2><br/>
-                    
-                    <section>
-                        Scripting
-                        <ul>
-                            <li>Bash</li>
-                            <li>CSS</li>
-                            <li>JavaScript</li>
-                            <li>Python</li>
-                            <li>NoSQL</li>
-                            <li>SQL</li>
-                        </ul>
-                        <br/><br/>
-                        
-                        Frameworks &amp; Tools
-                        <ul>
-                            <li>Figma</li>
-                            <li>Git</li>
-                            <li>GraphQL</li>
-                            <li>Jira</li>
-                            <li>NodeJs</li>
-                            <li>ReactJs</li>
-                        </ul>
-
-                    </section>
-                    </ScrollIntoViewIfNeeded>
+                        <div className={classes.skillFrame}>
+                            <div>
+                                <h2 id='skills'>Proficiency Chart</h2><br/>
+                            </div>
+                            <div className={classes.chartContainer}>
+                                <ScrollIntoViewIfNeeded active={boolSkills}>
+                                <SkillCharts
+                                    data={chartData}
+                                    options={chartOptions}
+                                />
+                                </ScrollIntoViewIfNeeded>
+                                <SkillCharts
+                                    data={toolsData}
+                                    options={chartOptions}
+                                />
+                            </div>
+                        </div>
                 </article>
             
 
             
             <article>
                 <ScrollIntoViewIfNeeded active={boolWork}>
-                <h2 id='work'>What I have worked on </h2><br/>
+                <h2 id='work'>Projects I have worked on </h2><br/>
 
                 <p>What is ipsum lorem? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br/><br/>
                 </p>
