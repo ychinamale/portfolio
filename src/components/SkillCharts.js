@@ -22,9 +22,12 @@ function getSkillBar (barData, opacity) {
 };
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    chart: {
+        padding: "10px"
+    },
+    bar: {
         flexGrow: 1,
-        padding: "5px 5px 5px 20px"
+        padding: "10px 5px"
     },
     margin: {
         margin: theme.spacing(1),
@@ -39,12 +42,12 @@ export function SkillCharts ({ data, options }) {
     const classes = useStyles();
 
     return (
-        <div className={classes.root} style={{ minWidth: minWidth}}>
+        <div className={classes.chart} style={{ minWidth: minWidth, border: `solid 1px ${borderColor}`}}>
             { data.map((barData)=>{
                 const ThisBar = getSkillBar(barData, opacity);
 
                 return (
-                    <div key={barData.title} className={classes.root}>
+                    <div key={barData.title} className={classes.bar}>
                         {barData.title}
                         <ThisBar
                             className={classes.margin}
@@ -53,9 +56,7 @@ export function SkillCharts ({ data, options }) {
                         />
                     </div>
                 )
-            })}
-
-            
+            })}            
         </div>
     );
 }
@@ -74,32 +75,3 @@ SkillCharts.propTypes = {
         borderColor: PropTypes.string
     }).isRequired
 };
-
-
-
-/*
-
-const BorderLinearProgress = withStyles({
-    root: {
-        height: 20,
-        backgroundColor: lighten('#ff6c5c', 0.6),
-    },
-    bar: {
-        borderRadius: 20,
-        backgroundColor: '#ff6c5c',
-    },
-})(LinearProgress);
-
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        minWidth: '400px',
-        border: 'solid 1px black'
-    },
-    margin: {
-        margin: theme.spacing(1),
-    },
-}));
-
-*/
