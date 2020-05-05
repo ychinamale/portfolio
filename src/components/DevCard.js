@@ -23,12 +23,19 @@ const useStyles = makeStyles(()=> ({
         justifyContent: 'flex-end',
         padding: '0 0 20px 0'
     },
-    profile__name: {},
-    profile__title: {},
+    profile__name: {
+        fontSize: '1.3em',
+        fontWeight: 'bold'
+    },
+    profile__title: {
+        fontSize: '1.1em',
+        margin: '5px 0 15px 0'
+    },
     profile__details: {
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: '10px'
     }
 }));
 
