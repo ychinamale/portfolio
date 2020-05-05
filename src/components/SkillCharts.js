@@ -23,7 +23,7 @@ function getSkillBar (barData, opacity) {
 
 const useStyles = makeStyles((theme) => ({
     chart: {
-        padding: "10px"
+        padding: "10px 10px 30px 10px"
     },
     bar: {
         flexGrow: 1,
