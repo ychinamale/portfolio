@@ -14,7 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 // hardcoding devCard to be in the middle 
 const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-var topSpace = vh/2 - 250;
+var topSpace = vh/2 - 292;
 ////////////////////////////////
 
 const useStyles = makeStyles(()=> ({
